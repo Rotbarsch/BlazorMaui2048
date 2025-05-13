@@ -1,0 +1,70 @@
+﻿.grid-container {
+    --tile-width: 50px;
+    --border-width: 1px;
+    --margin-width: 3px;
+
+    border: solid black var(--border-width);
+    width: calc(4*var(--tile-width) + (4*var(--border-width))*2 + (4*var(--margin-width))*2);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.game-tile {
+    border: solid black var(--border-width);
+    margin: var(--margin-width);
+    width: var(--tile-width);
+    height: var(--tile-width);
+    color: black;
+}
+
+.game-tile-0 {
+    background-color: lightgrey;
+}
+
+    .game-tile-0 > .game-tile-content {
+        display: none;
+    }
+
+.game-tile-2 {
+    background-color: antiquewhite;
+}
+
+.game-tile-4 {
+    background-color: lightyellow;
+}
+
+.game-tile-8 {
+    background-color: lightgoldenrodyellow;
+}
+
+.game-tile-16 {
+    background-color: rosybrown;
+}
+
+.game-tile-32 {
+    background-color: darkgoldenrod;
+}
+
+.game-tile-64 {
+    background-color: yellow;
+}
+
+.game-tile-128 {
+    background-color: orange;
+}
+
+.game-tile-256 {
+    background-color: darkorange;
+}
+
+.game-tile-512 {
+    background-color: lightcoral;
+}
+
+.game-tile-1024 {
+    background-color: palevioletred;
+}
+
+.game-tile-2048 {
+    background-color: gold;
+}

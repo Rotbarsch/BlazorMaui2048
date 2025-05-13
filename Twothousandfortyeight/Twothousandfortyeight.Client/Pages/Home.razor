@@ -1,0 +1,27 @@
+﻿@page "/"
+@using Twothousandfortyeight.Game
+@using Twothousandfortyeight.Game.Services
+@inject IGameService GameService
+
+<PageTitle>2048 Blazor</PageTitle>
+
+@if (!GameService.GameStarted)
+{
+
+    <button @onclick="() => { GameService.Reset(); StateHasChanged(); }">Start</button>
+
+}
+else
+{
+    <h2>Score: @GameService.Score</h2>
+    <GameGridComponent/>
+
+    <button @onclick="()=>GameService.Traverse(GameGridTraversalDirection.LEFT)">LEFT</button>
+    <button @onclick="()=>GameService.Traverse(GameGridTraversalDirection.UP)">UP</button>
+    <button @onclick="()=>GameService.Traverse(GameGridTraversalDirection.DOWN)">DOWN</button>
+    <button @onclick="()=>GameService.Traverse(GameGridTraversalDirection.RIGHT)">RIGHT</button>
+    <br/>
+    <button @onclick="() => { GameService.Reset(); StateHasChanged(); }">Reset</button>
+    
+}
+
