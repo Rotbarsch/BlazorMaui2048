@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Twothousandfortyeight.Maui"
+             x:Class="Twothousandfortyeight.Maui.MainPage"
+             
+             >
+
+    <Grid BackgroundColor="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="{Binding Path=Score}" TextColor="White"/>
+        <Button Grid.Row="1" Command="{Binding OnClickCommand}" Text="Reset" TextColor="White" BackgroundColor="Black" BorderColor="White"/>
+
+        <BlazorWebView Grid.Row="2" x:Name="blazorWebView" HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app" ComponentType="{x:Type local:Components.Routes}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+
+        <!-- 
+        Use this Container set "on top" of the webview for Swipe Gesture handling. Packing the SwipeGestureRecognizer directly as
+        a child of the BlazorWebView creates Crashes in WinUI3, due to conflicts between webview native gesture handling, and
+        MAUI gesture handling.
+        -->
+        <Grid Row="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent">
+            <Grid.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Command="{Binding OnSwipeCommand}" CommandParameter="LEFT"/>
+                <SwipeGestureRecognizer Direction="Up" Command="{Binding OnSwipeCommand}" CommandParameter="UP"/>
+                <SwipeGestureRecognizer Direction="Right" Command="{Binding OnSwipeCommand}" CommandParameter="RIGHT"/>
+                <SwipeGestureRecognizer Direction="Down" Command="{Binding OnSwipeCommand}" CommandParameter="DOWN"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+    </Grid>
+</ContentPage>

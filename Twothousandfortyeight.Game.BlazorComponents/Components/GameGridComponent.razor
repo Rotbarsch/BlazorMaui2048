@@ -1,0 +1,12 @@
+﻿@namespace Twothousandfortyeight.Game.BlazorComponents
+
+<div class="grid-container">
+    @foreach (var tile in GameService.Grid.Items.OrderBy(x => x.Row).ThenBy(x => x.Column))
+    {
+        <div class="game-tile game-tile-@(tile.ActualValue)" data-column="@tile.Column" data-row="@tile.Row">
+            <div class="game-tile-content">
+                @tile.ActualValue
+            </div>
+        </div>
+    }
+</div>
