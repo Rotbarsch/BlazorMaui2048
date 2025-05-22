@@ -8,5 +8,8 @@ namespace Twothousandfortyeight.Maui.KeyHandler;
 /// </summary>
 public interface IKeyHandler
 {
-    void RegisterGameKeyHandler(IElementHandler? handler, Action<GameGridTraversalDirection> traversalAction);
+    void RegisterGameKeyHandler(
+        IElementHandler? handler, 
+        Action<GameGridTraversalDirection> traversalAction
+        );
 }

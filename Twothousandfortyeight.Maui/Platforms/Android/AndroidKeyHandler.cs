@@ -10,22 +10,23 @@ namespace Twothousandfortyeight.Maui.KeyHandler;
 /// </summary>
 public class KeyHandler : IKeyHandler
 {
-    private Action<GameGridTraversalDirection> _keyAction;
-    static event EventHandler KeyUp;
+    private Action<GameGridTraversalDirection>? _keyAction;
+    static event EventHandler? KeyUp;
 
     public static void InvokeKeyUpEvent(Keycode keyCode, KeyEvent? keyEvent)
     {
-        KeyUp.Invoke(null, new View.KeyEventArgs(true, keyCode, keyEvent));
+        KeyUp?.Invoke(null, new View.KeyEventArgs(true, keyCode, keyEvent));
     }
 
-    public void RegisterGameKeyHandler(IElementHandler? handler, Action<GameGridTraversalDirection> traversalAction)
+    public void RegisterGameKeyHandler(IElementHandler? handler, 
+        Action<GameGridTraversalDirection> traversalAction)
     {
         KeyUp += HandleKeyUp;
         _keyAction = traversalAction;
     }
-
     private void HandleKeyUp(object? sender, EventArgs e)
     {
+        // Translate from Android Key to MauiGame TraversalDirection enum
         switch ((e as View.KeyEventArgs)?.KeyCode)
         {
             case Keycode.Numpad8:

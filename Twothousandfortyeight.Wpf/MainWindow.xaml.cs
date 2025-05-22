@@ -76,8 +76,6 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 this.Close();
                 break;
         }
-
-
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
