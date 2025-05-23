@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Twothousandfortyeight.Game.Services;
 
+// ReSharper disable once CheckNamespace
 namespace Twothousandfortyeight.Game.BlazorComponents;
 
 public partial class GameGridComponent
