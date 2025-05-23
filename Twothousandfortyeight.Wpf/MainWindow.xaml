@@ -7,7 +7,7 @@
         xmlns:game="clr-namespace:Twothousandfortyeight.Game.BlazorComponents;assembly=Twothousandfortyeight.Game.BlazorComponents"
         mc:Ignorable="d"
         Title="2048 in MAUI" Height="400" Width="600"
-        
+        Icon=".\appicon.ico"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         KeyUp="MainWindow_OnKeyUp"
         >
