@@ -12,5 +12,4 @@ public class MainActivity : MauiAppCompatActivity
         KeyHandler.KeyHandler.InvokeKeyUpEvent(keyCode, e);
         return true;
     }
-
 }
