@@ -73,20 +73,22 @@ public class MainPageViewModel : INotifyPropertyChanged
         });
     }
 
-    public void RegisterKeys(IViewHandler? handler)
-    {
-        _keyHandler.RegisterGameKeyHandler(handler, Traverse);
-    }
-
-    public void Traverse(GameGridTraversalDirection dir)
-    {
-        _gameService.Traverse(dir);
-    }
-
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+
+    public void Traverse(GameGridTraversalDirection dir)
+    {
+        _gameService.Traverse(dir);
+
+    }
+
+    public void RegisterKeys(IViewHandler? handler)
+    {
+        _keyHandler.RegisterGameKeyHandler(handler, Traverse);
     }
 }

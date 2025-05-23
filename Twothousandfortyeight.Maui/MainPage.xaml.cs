@@ -10,10 +10,10 @@ public partial class MainPage
         _viewModel = vm;
         BindingContext = _viewModel;
 
-        // As late as possible to ensure all necessary services are ready on all targets
         this.Loaded += (sender, args) =>
         {
             _viewModel.RegisterKeys(this.Handler);
         };
     }
+
 }
